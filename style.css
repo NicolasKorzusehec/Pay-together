@@ -2,3 +2,11 @@
     height: 100vh;
     margin: 5%;
 }
+
+table{
+    border-collapse: collapse;
+}
+
+table, tr, td {
+    border: 1px solid grey;
+}

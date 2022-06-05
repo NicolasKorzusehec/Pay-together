@@ -1,13 +1,28 @@
-var nombre
-var paid
+/* alert('probando js');
+ */
+
+/* console.log('console test');
+ */
+
 
 function ingresoGasto(){
-    nombre =+ document.getElementById('nombre').value;
-    paid =+ document.getElementById('paid').value;
-    
-/*     for (let element of nombre) {
-        console.log(element);
-        console.log(paid);
+    console.log('Etapa 1, incluimos los gastos y los leemos en consola.');
 
+    let name = [];
+    let paid = [];
+
+    name =+ document.getElementById('name').value;
+    paid =+ document.getElementById('paid').value;
+
+    console.log(name,paid)
+/*     for (let element of name) {
+        console.log(element);
     }
- */};
+    for (let element of paid) {
+        console.log(element);
+    }
+ */
+    console.log('fin de ejemplo');
+};
+
+/* ingresoGasto() */

@@ -14,8 +14,8 @@
     
     <link rel="stylesheet" href="./style.css">
     <!--Vinculo Boostrap-->
-<!--     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
 
 </head>
 <body>
@@ -25,23 +25,44 @@
             <h6>Enter how much each person paid</h6>
         </div>
         <div id="entrada">
-            <form>
-                <input type="text" placeholder="Name" id="nombre">
+
+                <label for="name"></label>
+                <input type="text" placeholder="Name" id="name">
                 <br>
+                <label for="paid"></label>
                 <input type="text" placeholder="Paid" id="paid">
                 <br>
-                <input type="submit" onclick="ingresoGasto()">
-            </form>
+                <button onclick="ingresoGasto()">Enter</button>
+            
 
 
         </div>
         <div id="salida">
 
             <!--Acontinuacion lo siguiente es como se estructuraria la salida mas no algo estatico sino que sujeto a los inputs y al desarrollo de la funcionalidad en js.-->
+
             <table>
-                
+                <tr>
+                    <td>
+                        Javier: $130
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Pepe: $230
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Lina: $730
+                    </td>
+                </tr>
             </table>
 
+            <div>
+                <p>Total: $1090</p>
+                <p>A cada uno le toca aportar: $363.33</p>
+            </div>
 
         </div>
 
