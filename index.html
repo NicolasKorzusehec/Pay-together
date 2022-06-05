@@ -21,32 +21,56 @@
 
 </head>
 <body>
-    <div class="container d-flex align-items-center justify-content-center bg-warning">
-        <div class="card">
-            <div class="card-header bg-secondary">
-                <h1>Pay together</h1>
-                <h3>Enter how much each person paid</h3>
-            </div>
-            <div class="card-body">
-                <div class="entrada">
+    <div class="container d-flex align-items-center justify-content-center mt-5">
+        <img src="./img/colaboracion.png" alt="" class="me-3">
+        <div>
+            <span class="fs-1">PAY</span>
+            <span class="fs-2 fw-light">together</span>
+        </div>
+    </div>
 
-                        <label for="name"></label>
-                        <input type="text" placeholder="Name" id="name">
-                        <br>
-                        <label for="paid"></label>
-                        <input type="text" placeholder="Paid" id="paid">
-                        <br>
-                        <button onclick="ingresoGasto()">Enter</button>
-                    
+    <div class="container align-items-center justify-content-center">
+    
+        <div class="p-0" >
 
 
+            <div class="card text-center mt-4" id="entrada">
+                <div class="mt-2">
+                    <h3>Enter how much each person paid</h3>    
                 </div>
-                <br>
+                <div class="card-body">
+                    <div class="entrada d-flex align-items-center justify-content-center">
+
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="text" placeholder="Name" id="name">
+                            </div>
+
+                            <div class="col-4">
+                                <input type="text" placeholder="Paid" id="paid">
+                            </div>
+
+                            <div class="col-4">
+                            <button onclick="ingresoGasto()">Enter</button>
+                            </div>
+                        </div>
+                        
+
+
+                    </div>
+                    
+                </div>  
+            </div>
+
+
+<!--Acontinuacion lo siguiente es como se estructuraria la salida mas no algo estatico sino que sujeto a los inputs y al desarrollo de la funcionalidad en js.-->
+
+            <div class="card text-center mt-4" id="salida">
+
                 <div class="salida">
 
-                    <!--Acontinuacion lo siguiente es como se estructuraria la salida mas no algo estatico sino que sujeto a los inputs y al desarrollo de la funcionalidad en js.-->
 
-                    <table id="datos`">
+                    <table class=" m-auto mt-3 mb-2" style="width: 90%;" id="datos">
                         <tr>
                             <td>Javier: $130</td>
                         </tr>
@@ -58,14 +82,18 @@
                         </tr>
                     </table>
 
-                    <div id="resultados">
-                        <p>Total: $1090</p>
-                        <p>A cada uno le toca aportar: $363.33</p>
+                    <div class="mt-2 border-top " id="resultados">
+                        <p class="m-0">Total: $1090</p>
+                        <p class="m-0 mb-2">A cada uno le toca aportar: $363.33</p>
                     </div>
 
                 </div>
             </div>  
         </div>
+
+
+        
+
     </div>
 
     
