@@ -2,6 +2,9 @@
     width: 100px;
 }
 
+.card {
+    box-shadow: 0 0 1px black;
+}
 
 table{
     border-collapse: collapse;
