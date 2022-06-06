@@ -13,7 +13,10 @@ var averagePerUser = 0;
 /* Ejecutamos la salida predeterminada cuando no hay entradas. */
 printExit();
 
-function ingresoGasto(person, amount){
+function ingresoGasto(){
+    let person = document.getElementById('users').value;
+    let amount = parseFloat( document.getElementById('paid').value )
+    
     if (person === undefined || amount === undefined) {
         tryAgain();
     } else {
