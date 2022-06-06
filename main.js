@@ -22,7 +22,8 @@ function ingresoGasto(){
         console.log(users);
     paid.push(amount);
         console.log(paid);
-    updateExit(person, amount);
+    updateExit();
+    console.log(paid.length);
     };  
 };
 
@@ -31,9 +32,9 @@ function tryAgain(){
     console.log ('tryAgain funciona correctamente.');
 };
 
-function updateExit(i, cash){
+function updateExit(){
     average();
-    printExit(i, cash);
+    printExit();
 };
 
 function average(){
@@ -48,7 +49,7 @@ function average(){
     console.log('promedio por persona es ' + averagePerUser);
 };
 
-function printExit(i, cash){
+function printExit(){
     if( users == false && paid == false ){
         console.log("html. ventana base en la que figure no data loaded yet");
 
@@ -63,11 +64,11 @@ function printExit(i, cash){
         results.innerHTML = "";
 
     } else {
-        clearExit(i, cash);   
+        clearExit();   
     };
 };
 
-function clearExit(i, cash){
+function clearExit(){
     let defaultshow = document.getElementById('default');
     defaultshow.innerHTML = "";
 
@@ -78,35 +79,26 @@ function clearExit(i, cash){
     results.innerHTML = "";
     console.log('Salida teoricamente reseteada.');
 
-    exitTable(i, cash);
+    exitTable();
     exitResults(); 
 };
 
- function exitTable(i, cash){
+function exitTable(){
     console.log('html. Tabla con los valores que se ingresaron lograda');
     let enteredData = document.getElementById('entereddata');
-    enteredData.insertAdjacentHTML("beforeend", `
-        <tr>
-            <td>${i}: $${cash}</td>
-        </tr>
-    `)
+
+    for (let index = paid.length -1; index > -1; index--) {
+        let usuario = users[index]
+        let monto = paid[index]
+            enteredData.insertAdjacentHTML("beforeend", `
+            <tr>
+                <td>${usuario}: $${monto}</td>
+            </tr>
+        `)
+    }
 };
 
 
-/* function exitTable(i, cash){
-    console.log('html. Tabla con los valores que se ingresaron lograda');
-/*     let enteredData = document.getElementById('entereddata');
-    let printTable;
-    
-    for (let index = paid.length; index > -1; index--){
-        printTable += <tr>
-        <td>${users[index]}: $${paid[index]}</td>
-    </tr>
-    }
-    
-    enteredData.innerHTML = `${printTable}`
- };
- */
 
 
 function exitResults(){
