@@ -7,11 +7,10 @@ Primero la desarrollo con entradas manuales en consola, luego con imputs o promp
 var users=[];
 var paid=[];
 /*Variables Salida*/
-var gastoTotal;
-var promedio;
+var fullAmount = 0;
+var averagePerUser = 0;
 
-/* Ejecutamos la salida predeterminada cuando no hay entradas.
- */
+/* Ejecutamos la salida predeterminada cuando no hay entradas. */
 printExit();
 
 function ingresoGasto(person, amount){
@@ -33,31 +32,47 @@ function tryAgain(){
 
 function updateExit(){
     average();
-/*     printExit()
- */ 
+    printExit();
 };
 
 function average(){
+    fullAmount = 0;
+    
+    for (let iterator of paid) {
+        fullAmount += iterator;
+    };
+    console.log('total es ' + fullAmount);
 
+    averagePerUser = fullAmount/ paid.length;
+    console.log('promedio por persona es ' + averagePerUser);
 };
 
 function printExit(){
-    if(users === undefined && paid === undefined){
-        console.log("no data loaded yet");
+    if( users == false && paid == false ){
+        console.log("html. ventana base en la que figure no data loaded yet");
     } else {
-    clearExit();   
-    console.log('Salida sobreescrita')    
-    }
-
-
+        clearExit();   
+        exitTable();
+        exitResults();
+    };
 };
 
 function clearExit(){
-    console.log('salida reseteada')
+    console.log('html. Salida teoricamente reseteada. se borro todo del div salida')
 }
+
+function exitTable(){
+    console.log('html. Tabla con los valores que se ingresaron lograda');
+};
+
+function exitResults(){
+    console.log('html. Salida con los valores calculados lograda');
+};
 
 function reset(){
     users = [];
     paid = [];
     printExit();
-}
+    console.log(users);
+    console.log(paid);
+};
