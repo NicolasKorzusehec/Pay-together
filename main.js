@@ -12,17 +12,26 @@ var averagePerUser = 0;
 
 //Evalua los inputs en dicho instante
 function checkInput(){
+    //Por alguna razon si declaro estas varibles con let me obliga a ingresar ambos valores el form.
     person = document.getElementById('users').value;
-    amount = parseFloat( document.getElementById('paid').value );
-}
+    console.log( 'Se ingreso el nombre: ' + person );
+
+    originAmount = document.getElementById('paid').value;
+    console.log( 'Se ingreso el gasto: $' + originAmount );
+
+    amount = Number( originAmount );
+    console.log(amount);  
+};
 
 /*Analiza si falta completar algun campo, de ser asi manda una alerta y termina de ejecutar; de lo contrario incluye losparametros en los arreglos y llama la funcion updateExit */
 function ingresoGasto(){
-    //No entiendo por que no me acepta el siguiente if, si tiene que ver con que amount viene de un parsefloat indefinido.
     checkInput();
-    if ( amount == NaN ) {
+
+    //No entiendo por que no me acepta el siguiente if, si tiene que ver con que amount viene de un parsefloat indefinido.
+/*  if ( amount == NaN ) {
         amount = 0;
-    };
+    }; */
+
     //El profe me habia mencionado que no era corecto escribir la logica del siguiente if de esta manera para definir que no hay input.
     if ( person == [] ){
         tryAgain();
@@ -32,7 +41,7 @@ function ingresoGasto(){
     paid.push(amount);
         console.log(paid);
     updateExit();
-    console.log(paid.length);
+    console.log('Total de datos ingresados: ' + paid.length);
     };  
 };
 
@@ -103,12 +112,9 @@ function exitTable(){
             <tr>
                 <td>${usuario}: $${monto}</td>
             </tr>
-        `)
-    }
+        `);
+    };
 };
-
-
-
 
 function exitResults(){
     console.log('html. Salida con los valores calculados lograda');
@@ -121,7 +127,7 @@ function exitResults(){
     <div class="col-4">
         <button onclick="reset()">Reset</button>
     </div>
-    `
+    `;
 };
 
 function reset(){
