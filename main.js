@@ -10,12 +10,19 @@ var paid=[];
 var fullAmount = 0;
 var averagePerUser = 0;
 
+//Evalua los inputs en dicho instante
+function checkInput(){
+    person = document.getElementById('users').value;
+    amount = parseFloat( document.getElementById('paid').value );
+}
+
 /*Analiza si falta completar algun campo, de ser asi manda una alerta y termina de ejecutar; de lo contrario incluye losparametros en los arreglos y llama la funcion updateExit */
 function ingresoGasto(){
-    let person = document.getElementById('users').value;
-    let amount = parseFloat( document.getElementById('paid').value );
-    
-    if ( person == [] || amount == [] ){
+    checkInput();
+    if ( amount == NaN ) {
+        amount = 0;
+    }
+    if ( person == [] ){
         tryAgain();
     } else {
     users.push(person);
@@ -29,7 +36,7 @@ function ingresoGasto(){
 
 function tryAgain(){
     alert("It's necesary to complete both fields. Please try Again.");
-    console.log ('tryAgain funciona correctamente.');
+    console.log ('js. tryAgain funciona correctamente.');
 };
 
 function updateExit(){

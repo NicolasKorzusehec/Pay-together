@@ -36,7 +36,7 @@
                     </div>
                     <div class="card-body">
                         <div class="entrada d-flex align-items-center justify-content-center">
-
+                            <form>
                             <div class="row">
                                 <div class="col-4">
                                     <input type="text" placeholder="Name" id="users" required>
@@ -47,10 +47,12 @@
                                 </div>
 
                                 <div class="col-4">
-                                    <button onclick="ingresoGasto()">Enter
+                                    <!--No entiendo porque si no le pongo el form.reset() con submit se reinicia la page directamente.-->
+                                    <button onclick="ingresoGasto(), form.reset()">Enter
                                     </button>
                                 </div>
                             </div>
+                            </form>
 
                         </div>
                     </div>  
