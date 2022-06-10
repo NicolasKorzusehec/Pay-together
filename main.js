@@ -138,6 +138,7 @@ function exitResults(){
     `;
 };
 
+//Imprime la consola en default
 function reset(){
     users = [];
     paid = [];
