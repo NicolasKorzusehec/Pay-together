@@ -163,6 +163,7 @@ function exitResults(){
     `;
 };
 
+//Imprime la consola en default
 //A partir del id, busca el index y elimina los elementos de los arrays permanentes. Luego reinicia la salida como si fuera un nuevo ingreso de informacion.
 function borrar(entrada){
     let noIndex = idinputs.indexOf(entrada);
