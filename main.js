@@ -60,8 +60,11 @@ function average(){
 
     originAverage = fullAmount/ paid.length;
     
-    averagePerUser = originAverage;
-    
+    //Este condicional permite que el promedio imprima decimales solo si tiene resto distinto de 0.
+    if ( fullAmount % paid.length !== 0 ) {
+        averagePerUser = originAverage.toFixed(2);
+    } else { averagePerUser = originAverage };
+
     console.log('Gasto promedio por persona: $' + averagePerUser);
 };
 
