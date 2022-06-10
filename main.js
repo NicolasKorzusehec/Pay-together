@@ -18,10 +18,12 @@ function checkInput(){
 
 /*Analiza si falta completar algun campo, de ser asi manda una alerta y termina de ejecutar; de lo contrario incluye losparametros en los arreglos y llama la funcion updateExit */
 function ingresoGasto(){
+    //No entiendo por que no me acepta el siguiente if, si tiene que ver con que amount viene de un parsefloat indefinido.
     checkInput();
     if ( amount == NaN ) {
         amount = 0;
-    }
+    };
+    //El profe me habia mencionado que no era corecto escribir la logica del siguiente if de esta manera para definir que no hay input.
     if ( person == [] ){
         tryAgain();
     } else {
