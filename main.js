@@ -1,9 +1,11 @@
-//Variables entrada
+//Variables entrada, permanentes
 var users=[];
 var paid=[];
-//Variables Salida
+//Variables Salida, temporales
+var idinputs = []; 
 var fullAmount = 0;
 var originAverage = 0;
+
 
 //Evalua el valor de los inputs en dicho instante en que se convoca esta funcion. 
 function checkInput(){
@@ -19,18 +21,20 @@ function checkInput(){
 function ingresoGasto(){
     checkInput();
 
-    //No entiendo por que no me acepta el siguiente if, si tiene que ver con que amount viene de un parsefloat indefinido.
+    //No entiendo por que no me acepta el siguiente if, se que tiene que ver con que amount viene de un parsefloat indefinido.
 /*  if ( amount == NaN ) {
         amount = 0;
     }; */
 
-    //El profe me habia mencionado que no era corecto escribir la logica del siguiente if de esta manera para definir que no hay input.
+    //El profe me habia mencionado que no era correcto escribir la logica del siguiente if de esta manera para definir que no hay input.
     if ( person == [] ){
         tryAgain();
     } else {
     users.push(person);
+    console.log('Inputs usuarios actual:')
         console.log(users);
     paid.push(amount);
+        console.log('Inputs gastos actual:')
         console.log(paid);
     updateExit();
     console.log('Total de datos ingresados: ' + paid.length);
@@ -45,8 +49,22 @@ function tryAgain(){
 
 //Bloque para mandar de manera ordenada a calcular los resultados y a que se impriman
 function updateExit(){
+    listarIds();
     average();
     printExit();
+};
+
+//Completa el array con los ids de cada input
+function listarIds(){
+    idinputs = []; //Lo seteamos
+
+    let xid = 0;
+    for (let iterator of users) {
+        idinputs.push('entrada' + xid);
+        xid++;
+    }
+    console.log( 'Lista de ID existentes: ');
+    console.log( idinputs )
 };
 
 //Calcula los resultados en funcion de los datos almacenados.
@@ -114,10 +132,17 @@ function exitTable(){
     for (let index = paid.length -1; index > -1; index--) {
         let usuario = users[index];
         let monto = paid[index];
+        let id = idinputs[index];
+
+        console.log('Se imprimio una celda');
+        console.log('El id es ' + id);
 
         enteredData.insertAdjacentHTML("beforeend", `
             <tr>
-                <td>${usuario}: $${monto}</td>
+                <td>
+                    <span>${usuario}: $${monto}</span>
+                    <button onclick="borrar('${id}')">Descartar</button>
+                </td> 
             </tr>
         `);
     };
@@ -138,7 +163,18 @@ function exitResults(){
     `;
 };
 
+<<<<<<< HEAD
 //Imprime la consola en default
+=======
+//A partir del id, busca el index y elimina los elementos de los arrays permanentes. Luego reinicia la salida como si fuera un nuevo ingreso de informacion.
+function borrar(entrada){
+    let noIndex = idinputs.indexOf(entrada);
+    users.splice(noIndex, 1);
+    paid.splice(noIndex, 1);
+    updateExit();
+};
+
+>>>>>>> 93714a69b415f510d3703f00d84da011ab11c3fb
 function reset(){
     users = [];
     paid = [];
