@@ -37,21 +37,21 @@
                     <div class="card-body">
                         <div class="entrada d-flex align-items-center justify-content-center">
                             <form>
-                            <div class="row">
-                                <div class="col-4">
-                                    <input type="text" placeholder="Name" id="users" required>
-                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <input type="text" placeholder="Name" id="users" required>
+                                    </div>
 
-                                <div class="col-4">
-                                    <input type="number" placeholder="Paid" id="paid" required>
-                                </div>
+                                    <div class="col-4">
+                                        <input type="number" placeholder="Paid" id="paid">
+                                    </div>
 
-                                <div class="col-4">
-                                    <!--No entiendo porque si no le pongo el form.reset() con submit se reinicia la page directamente.-->
-                                    <button onclick="ingresoGasto(), form.reset()">Enter
-                                    </button>
+                                    <div class="col-4">
+                                        <!--No entiendo porque si no le pongo el form.reset() con submit se reinicia la page directamente.-->
+                                        <button onclick="ingresoGasto(users.value, paid.value), form.reset()">Enter
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                             </form>
 
                         </div>
