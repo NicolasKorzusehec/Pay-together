@@ -15,7 +15,7 @@ function ingresoGasto(person, amount){
 
     
     //El profe me habia mencionado que no era correcto escribir la logica del siguiente if de esta manera para definir que no hay input.
-    if ( person == [] ){
+    if ( person == '' ){
         tryAgain();
     } else {
     users.push(person);
