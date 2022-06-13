@@ -7,6 +7,7 @@ This is a app proposed by the school of innovation of ITBA at the SPRINT 2 of th
   - [Objetive](#objetive)
   - [Links](#links)
   - [Built with](#built-with)
+    - [Pending to ADD](#pending-to-add )
   - [Useful resources](#useful-resources)
   - [Author](#author)
 
@@ -33,7 +34,13 @@ Users should be able to:
 - Functions
 - Loops
 - Variable locals and globals
+- DOM methods
 
+### Pending to ADD
+
+- Style for buttons and input fields
+- A function that makes the user choose to restart their input or add the inpunt to an existing one when their repeat a name input.
+- A new field and funcionality to register the total amount to pay, and do an analysis with results on that.
 
 ### Useful resources
 
