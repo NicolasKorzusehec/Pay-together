@@ -6,36 +6,25 @@ var idinputs = [];
 var fullAmount = 0;
 var originAverage = 0;
 
-
-//Evalua el valor de los inputs en dicho instante en que se convoca esta funcion. 
-function checkInput(){
-    //Por alguna razon si declaro estas varibles con let me obliga a ingresar ambos valores el form.
-    person = document.getElementById('users').value;
+//Analiza si falta completar algun campo, de ser asi manda una alerta y termina de ejecutar; de lo contrario incluye los parametros en los arreglos y llama la funcion updateExit 
+function ingresoGasto(person, amount){
     console.log( 'Se ingreso el nombre: ' + person );
+    console.log( 'Se ingreso el gasto: $' + Number(amount) );
 
-    amount = Number( document.getElementById('paid').value );
-    console.log( 'Se ingreso el gasto: $' + amount );
-};
 
-//Analiza si falta completar algun campo, de ser asi manda una alerta y termina de ejecutar; de lo contrario incluye losparametros en los arreglos y llama la funcion updateExit 
-function ingresoGasto(){
-    checkInput();
 
-    //No entiendo por que no me acepta el siguiente if, se que tiene que ver con que amount viene de un parsefloat indefinido.
-/*  if ( amount == NaN ) {
-        amount = 0;
-    }; */
-
+    
     //El profe me habia mencionado que no era correcto escribir la logica del siguiente if de esta manera para definir que no hay input.
-    if ( person == [] ){
+    if ( person == '' ){
         tryAgain();
     } else {
     users.push(person);
     console.log('Inputs usuarios actual:')
         console.log(users);
-    paid.push(amount);
+    paid.push( Number(amount) );
         console.log('Inputs gastos actual:')
         console.log(paid);
+
     updateExit();
     console.log('Total de datos ingresados: ' + paid.length);
     };  
@@ -141,7 +130,7 @@ function exitTable(){
             <tr>
                 <td>
                     <span>${usuario}: $${monto}</span>
-                    <button onclick="borrar('${id}')">Descartar</button>
+                    <button onclick="erase('${id}')" class="btn-close ms-1" aria-label="Close"></button>
                 </td> 
             </tr>
         `);
@@ -158,15 +147,15 @@ function exitResults(){
         <p class="m-0">Everyone must pay: $${averagePerUser}</p>                      
     </div>
     <div class="col-4">
-        <button onclick="reset()">Reset</button>
+        <button onclick="reset()" class="btn btn-secondary btn-sm">Reset</button>
     </div>
     `;
 };
 
 //Imprime la consola en default
 //A partir del id, busca el index y elimina los elementos de los arrays permanentes. Luego reinicia la salida como si fuera un nuevo ingreso de informacion.
-function borrar(entrada){
-    let noIndex = idinputs.indexOf(entrada);
+function erase(entry){
+    let noIndex = idinputs.indexOf(entry);
     users.splice(noIndex, 1);
     paid.splice(noIndex, 1);
     updateExit();
