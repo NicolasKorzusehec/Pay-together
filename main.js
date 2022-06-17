@@ -1,17 +1,19 @@
 //Variables entrada, permanentes
 var users=[];
 var paid=[];
+
+var lastData=[];
 //Variables Salida, temporales
 var idinputs = []; 
 var fullAmount = 0;
 var originAverage = 0;
 
+
+
 //Analiza si falta completar algun campo, de ser asi manda una alerta y termina de ejecutar; de lo contrario incluye los parametros en los arreglos y llama la funcion updateExit 
 function ingresoGasto(person, amount){
     console.log( 'Se ingreso el nombre: ' + person );
     console.log( 'Se ingreso el gasto: $' + Number(amount) );
-
-
 
     
     //El profe me habia mencionado que no era correcto escribir la logica del siguiente if de esta manera para definir que no hay input.
@@ -173,3 +175,42 @@ function reset(){
     console.log( 'Cantidad de nombres actual: ' + Number( users ) );
     console.log( 'Cantidad de gastos actual: ' + Number( paid ) );
 };
+
+
+//Guardar en un JSON unos resultados
+function saveData(){
+    lastData=[];
+    for (let index = 0; index < users.length; index++) {
+        lastData.push({"userName": users[index], "amount": paid[index]})
+    }
+    lastData.push({"totalAmount": fullAmount,"average": averagePerUser})
+    console.clear()
+    console.log(JSON.parse(JSON.stringify(lastData)))
+};
+
+
+// Trae la ultima informacion guardada en JSON de resultados anteriores
+function bringData(){
+    users=[];
+    paid=[];
+    for (let index = 0; index < lastData.length-1; index++) {
+        users.push(lastData[index]["userName"])
+        paid.push(lastData[index]["amount"])
+
+    };
+
+    console.clear()
+    console.log(users, paid);
+
+    updateExit()
+};
+
+//Descargar un JSON
+function downloadData(){
+
+};
+
+//Sube un JSON con datos anteriormente calculados
+function uploadData(){
+
+}
