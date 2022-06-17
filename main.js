@@ -207,6 +207,12 @@ function bringData(){
 
 //Descargar un JSON
 function downloadData(){
+    var a = document.createElement('a')
+    var file = new Blob([JSON.stringify(lastData)], {type: 'text/plain'
+    });
+    a.href = URL.createObjectURL(file);
+    a.download = 'sesion.json';
+    a.click();
 
 };
 

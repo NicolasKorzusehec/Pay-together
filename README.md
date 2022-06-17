@@ -38,7 +38,10 @@ Users should be able to:
 
 ### Pending to ADD
 
-- Style for buttons and input fields
+- Change the actual data structure to a JSON.
+- Integrar un input select para saber si pago al cotado.
+-Tercer casilla que diga si debe plata, si cubrio su parte o si le deben plata.
+- Funcion que cargue la info de un json existente.
 - A function that makes the user choose to restart their input or add the inpunt to an existing one when their repeat a name input.
 - A new field and funcionality to register the total amount to pay, and do an analysis with results on that.
 
