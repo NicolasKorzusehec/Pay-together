@@ -93,18 +93,24 @@
                 </div>
                 
                 <div class="text-center mt-4" id="json">
-                    <form>
-                        <div class="row m-2">
+                        <div class="row m-2 d-flex align-items-center justify-content-center">
                             <div class="col-6">
-                                <button onclick="" class="btn btn-outline-secondary btn-sm">Load latest data</button>
-                                </button>
+                                <button onclick="bringData()" class="btn btn-outline-secondary btn-sm">Load latest data</button>
                             </div>
                             <div class="col-6">
-                                <button onclick="" class="btn btn-outline-secondary btn-sm">Update latest data
+                                <button onclick="saveData()" class="btn btn-outline-secondary btn-sm">Save latest data
                                 </button>
                             </div>
+                            <div class="col-6 mt-3">
+                                <button onclick="uploadData()" class="btn btn-secondary btn-sm">Upload old data
+                                </button>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <button onclick="downloadData()" class="btn btn-secondary btn-sm">Download latest data
+                                </button>
+                            </div>
+
                         </div>
-                    </form>
                 </div>
                 
                 
