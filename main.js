@@ -130,7 +130,7 @@ function exitTable(){
             <tr>
                 <td>
                     <span>${usuario}: $${monto}</span>
-                    <button onclick="erase('${id}')">Descartar</button>
+                    <button onclick="erase('${id}')" class="btn-close ms-1" aria-label="Close"></button>
                 </td> 
             </tr>
         `);
@@ -147,7 +147,7 @@ function exitResults(){
         <p class="m-0">Everyone must pay: $${averagePerUser}</p>                      
     </div>
     <div class="col-4">
-        <button onclick="reset()">Reset</button>
+        <button onclick="reset()" class="btn btn-secondary btn-sm">Reset</button>
     </div>
     `;
 };

@@ -39,16 +39,16 @@
                             <form>
                                 <div class="row">
                                     <div class="col-4">
-                                        <input type="text" placeholder="Name" id="users" required>
+                                        <input type="text" placeholder="Name" id="users" required class="input-group">
                                     </div>
 
                                     <div class="col-4">
-                                        <input type="number" placeholder="Paid" id="paid">
+                                        <input type="number" placeholder="Paid" id="paid" class="input-group">
                                     </div>
 
                                     <div class="col-4">
                                         <!--No entiendo porque si no le pongo el form.reset() con submit se reinicia la page directamente.-->
-                                        <button onclick="ingresoGasto(users.value, paid.value), form.reset()">Enter
+                                        <button onclick="ingresoGasto(users.value, paid.value), form.reset()" class="btn btn-secondary btn-sm">Enter
                                         </button>
                                     </div>
                                 </div>
