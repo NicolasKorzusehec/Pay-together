@@ -221,5 +221,3 @@ function uploadData(){
 
 }
 
-
-function mencionado
