@@ -219,16 +219,25 @@ function downloadData(){
 //Sube un JSON con datos anteriormente calculados
 //Se rompe por la referencia que toma json
 function uploadData(){
+    console.clear()
+    console.log('probando carga')
     users=[];
     paid=[];
-    fetch("sesion.json")
+    fetch('sesion.json')
+    //Probe lo siguiente
+    //fetch('file:///C:/Users/Usuario/Downloads/sesion%20(6).json')
+    /*Me salto esto:
+    Not allowed to load local resource
+    Uncaught (in promise) TypeError: Failed to fetch
+    at uploadData (main.js:228:5)
+    at HTMLButtonElement.onclick (index.html:112:97*/
         .then( response => response.json())
         .then( data => {
             console.log(data);
-            /*for (let i = 0; i < data.length-1; i++) {
+            for (let i = 0; i < data.length-1; i++) {
                 console.log( data[i].userName, data[i].amount );
                 ingresoGasto( data[i].userName, data[i].amount )
-            }*/
+            }
         })
 }
 
