@@ -207,17 +207,28 @@ function bringData(){
 
 //Descargar un JSON
 function downloadData(){
-    var a = document.createElement('a')
-    var file = new Blob([JSON.stringify(lastData)], {type: 'text/plain'
-    });
-    a.href = URL.createObjectURL(file);
-    a.download = 'sesion.json';
-    a.click();
-
+    var link = document.createElement('a')
+    let json = JSON.stringify(lastData)
+    var blob = new Blob([json], {type: 'application/json'});
+    let url = URL.createObjectURL(blob);
+    link.href = url;
+    link.download = 'sesion.json';
+    link.click();
 };
 
 //Sube un JSON con datos anteriormente calculados
+//Se rompe por la referencia que toma json
 function uploadData(){
-
+    users=[];
+    paid=[];
+    fetch("sesion.json")
+        .then( response => response.json())
+        .then( data => {
+            console.log(data);
+            /*for (let i = 0; i < data.length-1; i++) {
+                console.log( data[i].userName, data[i].amount );
+                ingresoGasto( data[i].userName, data[i].amount )
+            }*/
+        })
 }
 
