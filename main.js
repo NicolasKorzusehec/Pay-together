@@ -219,11 +219,30 @@ function downloadData(){
 //Sube un JSON con datos anteriormente calculados
 //Se rompe por la referencia que toma json
 function uploadData(){
-    console.clear()
-    console.log('probando carga')
     users=[];
     paid=[];
-    fetch('sesion.json')
+    console.clear();
+    console.log('probando carga');
+
+    function readjson(data){
+        const reader = new FileReader();
+        reader.addEventListener('load', (event) => {
+        img.src = event.target.result;
+        });
+        reader.readAsDataURL(data);
+    }
+    
+    
+
+    const archivo = document.getElementById("file-selector");
+    archivo.addEventListener('change', (event) => {
+        const fileList = event.target.files;
+        console.log(fileList);
+        readjson(fileList)
+    });
+
+
+    //fetch()
     //Probe lo siguiente
     //fetch('file:///C:/Users/Usuario/Downloads/sesion%20(6).json')
     /*Me salto esto:
@@ -231,13 +250,13 @@ function uploadData(){
     Uncaught (in promise) TypeError: Failed to fetch
     at uploadData (main.js:228:5)
     at HTMLButtonElement.onclick (index.html:112:97*/
-        .then( response => response.json())
+       /* .then( response => response.json())
         .then( data => {
             console.log(data);
             for (let i = 0; i < data.length-1; i++) {
                 console.log( data[i].userName, data[i].amount );
                 ingresoGasto( data[i].userName, data[i].amount )
             }
-        })
+        })*/
 }
 
